@@ -1,0 +1,177 @@
+[
+    {
+        "label": "csv",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "csv",
+        "description": "csv",
+        "detail": "csv",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "tkinter",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "tkinter",
+        "description": "tkinter",
+        "detail": "tkinter",
+        "documentation": {}
+    },
+    {
+        "label": "ttk",
+        "importPath": "tkinter",
+        "description": "tkinter",
+        "isExtraImport": true,
+        "detail": "tkinter",
+        "documentation": {}
+    },
+    {
+        "label": "messagebox",
+        "importPath": "tkinter",
+        "description": "tkinter",
+        "isExtraImport": true,
+        "detail": "tkinter",
+        "documentation": {}
+    },
+    {
+        "label": "matplotlib.pyplot",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "matplotlib.pyplot",
+        "description": "matplotlib.pyplot",
+        "detail": "matplotlib.pyplot",
+        "documentation": {}
+    },
+    {
+        "label": "FigureCanvasTkAgg",
+        "importPath": "matplotlib.backends.backend_tkagg",
+        "description": "matplotlib.backends.backend_tkagg",
+        "isExtraImport": true,
+        "detail": "matplotlib.backends.backend_tkagg",
+        "documentation": {}
+    },
+    {
+        "label": "platform",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "platform",
+        "description": "platform",
+        "detail": "platform",
+        "documentation": {}
+    },
+    {
+        "label": "add_expense",
+        "kind": 2,
+        "importPath": "input",
+        "description": "input",
+        "peekOfCode": "def add_expense():\n    print(\"=== 新增支出紀錄 ===\")\n    # 1. 輸入日期 (預設為今天，或手動輸入)\n    date_str = input(\"請輸入日期 (YYYY-MM-DD，直接按 Enter 使用今日): \")\n    if not date_str:\n        date_str = datetime.now().strftime(\"%Y-%m-%d\")\n    # 2. 輸入金額\n    while True:\n        try:\n            amount = int(input(\"請輸入金額: \"))",
+        "detail": "input",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "input",
+        "description": "input",
+        "peekOfCode": "def main():\n    while True:\n        add_expense()\n        cont = input(\"\\n要繼續新增下一筆嗎？ (y/n): \")\n        if cont.lower() != 'y':\n            break\n    print(\"輸入結束。\")\nif __name__ == \"__main__\":\n    main()",
+        "detail": "input",
+        "documentation": {}
+    },
+    {
+        "label": "DATA_FILE",
+        "kind": 5,
+        "importPath": "input",
+        "description": "input",
+        "peekOfCode": "DATA_FILE = 'expenses.csv'\ndef add_expense():\n    print(\"=== 新增支出紀錄 ===\")\n    # 1. 輸入日期 (預設為今天，或手動輸入)\n    date_str = input(\"請輸入日期 (YYYY-MM-DD，直接按 Enter 使用今日): \")\n    if not date_str:\n        date_str = datetime.now().strftime(\"%Y-%m-%d\")\n    # 2. 輸入金額\n    while True:\n        try:",
+        "detail": "input",
+        "documentation": {}
+    },
+    {
+        "label": "ExpenseApp",
+        "kind": 6,
+        "importPath": "output",
+        "description": "output",
+        "peekOfCode": "class ExpenseApp:\n    def __init__(self, root):\n        self.root = root\n        self.root.title(\"記帳管理系統\")\n        self.root.geometry(\"1100x700\") \n        # 確保資料檔存在，標頭需與 input.py 一致: Date, Amount, Category, Notes\n        if not os.path.exists(DATA_FILE):\n            with open(DATA_FILE, 'w', newline='', encoding='utf-8') as f:\n                writer = csv.writer(f)\n                writer.writerow([\"Date\", \"Amount\", \"Category\", \"Notes\"])",
+        "detail": "output",
+        "documentation": {}
+    },
+    {
+        "label": "get_chinese_font",
+        "kind": 2,
+        "importPath": "output",
+        "description": "output",
+        "peekOfCode": "def get_chinese_font():\n    system = platform.system()\n    if system == \"Windows\":\n        return 'Microsoft JhengHei' # 微軟正黑體\n    elif system == \"Darwin\": # macOS\n        return 'Arial Unicode MS'\n    elif system == \"Linux\":\n        return 'WenQuanYi Micro Hei'\n    return 'sans-serif'\n# 設定 Matplotlib 字型",
+        "detail": "output",
+        "documentation": {}
+    },
+    {
+        "label": "normalize_amount",
+        "kind": 2,
+        "importPath": "output",
+        "description": "output",
+        "peekOfCode": "def normalize_amount(amount_str):\n    if not amount_str:\n        return \"\"\n    table = str.maketrans('０１２３４５６７８９', '0123456789')\n    amount_str = amount_str.translate(table)\n    amount_str = amount_str.replace(',', '').strip()\n    return amount_str\nclass ExpenseApp:\n    def __init__(self, root):\n        self.root = root",
+        "detail": "output",
+        "documentation": {}
+    },
+    {
+        "label": "DATA_FILE",
+        "kind": 5,
+        "importPath": "output",
+        "description": "output",
+        "peekOfCode": "DATA_FILE = 'expenses.csv'\n# --- 設定中文字型 (嘗試跨平台相容) ---\ndef get_chinese_font():\n    system = platform.system()\n    if system == \"Windows\":\n        return 'Microsoft JhengHei' # 微軟正黑體\n    elif system == \"Darwin\": # macOS\n        return 'Arial Unicode MS'\n    elif system == \"Linux\":\n        return 'WenQuanYi Micro Hei'",
+        "detail": "output",
+        "documentation": {}
+    },
+    {
+        "label": "CHINESE_FONT",
+        "kind": 5,
+        "importPath": "output",
+        "description": "output",
+        "peekOfCode": "CHINESE_FONT = get_chinese_font()\nplt.rcParams['font.sans-serif'] = [CHINESE_FONT]\nplt.rcParams['axes.unicode_minus'] = False\n# --- 輔助函式：金額正規化 ---\ndef normalize_amount(amount_str):\n    if not amount_str:\n        return \"\"\n    table = str.maketrans('０１２３４５６７８９', '0123456789')\n    amount_str = amount_str.translate(table)\n    amount_str = amount_str.replace(',', '').strip()",
+        "detail": "output",
+        "documentation": {}
+    },
+    {
+        "label": "plt.rcParams['font.sans-serif']",
+        "kind": 5,
+        "importPath": "output",
+        "description": "output",
+        "peekOfCode": "plt.rcParams['font.sans-serif'] = [CHINESE_FONT]\nplt.rcParams['axes.unicode_minus'] = False\n# --- 輔助函式：金額正規化 ---\ndef normalize_amount(amount_str):\n    if not amount_str:\n        return \"\"\n    table = str.maketrans('０１２３４５６７８９', '0123456789')\n    amount_str = amount_str.translate(table)\n    amount_str = amount_str.replace(',', '').strip()\n    return amount_str",
+        "detail": "output",
+        "documentation": {}
+    },
+    {
+        "label": "plt.rcParams['axes.unicode_minus']",
+        "kind": 5,
+        "importPath": "output",
+        "description": "output",
+        "peekOfCode": "plt.rcParams['axes.unicode_minus'] = False\n# --- 輔助函式：金額正規化 ---\ndef normalize_amount(amount_str):\n    if not amount_str:\n        return \"\"\n    table = str.maketrans('０１２３４５６７８９', '0123456789')\n    amount_str = amount_str.translate(table)\n    amount_str = amount_str.replace(',', '').strip()\n    return amount_str\nclass ExpenseApp:",
+        "detail": "output",
+        "documentation": {}
+    }
+]

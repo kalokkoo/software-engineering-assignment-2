@@ -16,7 +16,7 @@ def add_expense():
     # 2. 輸入金額
     while True:
         try:
-            amount = float(input("請輸入金額: "))
+            amount = int(input("請輸入金額: "))
             break
         except ValueError:
             print("金額格式錯誤，請輸入數字。")
